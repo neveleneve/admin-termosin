@@ -15,6 +15,6 @@ Route::group(['middleware' => 'auth:admin'], function () {
 });
 // Super Admin Special Route
 Route::group(['middleware' => 'auth:superadmin'], function () {
-    Route::get('/superadmin/dashboard', 'SuperadminController@dashboard');
+    Route::get('/superadmin/dashboard', 'SuperAdminController@dashboard');
     Route::get('/superadmin/item-list', 'SuperAdminController@itemlist')->name('itemlist');
 });
