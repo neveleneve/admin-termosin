@@ -44,7 +44,24 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+
+        'apiadmin' => [
+            'driver' => 'token',
+            'provider' => 'admin',
+        ],
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmin',
+        ],
+
+        'apisuperadmin' => [
+            'driver' => 'token',
+            'provider' => 'superadmin',
         ],
     ],
 
@@ -69,6 +86,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin_Login::class,
+        ],
+        'superadmin' => [
+            'driver' => 'eloquent',
+            'model' => App\Superadmin_Login::class,
         ],
 
         // 'users' => [
