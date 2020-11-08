@@ -39,8 +39,9 @@
         <div class="card-body card-body-cascade text-center wow fadeIn" data-wow-delay="0.5s">
             <h4 class="card-title"><strong>Selamat Datang, {{Auth::user()->nama}} </strong></h4>
             <h5 class="blue-text"><strong>Administrator Termosin Store</strong></h5>
-            <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
-                laudantium, totam rem aperiam.
+            <p class="card-text">
+                Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam.
             </p>
         </div>
     </div>
@@ -48,5 +49,3 @@
 @endsection
 
 @include('layouts/master')
-{{-- 
---}}

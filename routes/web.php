@@ -10,11 +10,14 @@ Route::group(['middleware' => 'guest'], function () {
 });
 // Admin Route
 Route::group(['middleware' => 'auth:admin'], function () {
-    Route::get('/admin/dashboard', 'AdminController@dashboard');
-    Route::get('/admin/item-list', 'AdminController@itemlist')->name('itemlist');
+    Route::get('admin/dashboard', 'AdminController@dashboard')->name('dashboard0');
+    Route::get('admin/item', 'AdminController@itemlist')->name('itemlist0');
+    Route::post('admin/item-action', 'AdminController@itemaction')->name('itemaction0');
+    Route::get('admin/item/detail/{id}', 'AdminController@viewitem')->name('viewitem0');
 });
 // Super Admin Special Route
 Route::group(['middleware' => 'auth:superadmin'], function () {
-    Route::get('/superadmin/dashboard', 'SuperAdminController@dashboard');
-    Route::get('/superadmin/item-list', 'SuperAdminController@itemlist')->name('itemlist');
+    Route::get('/superadmin/dashboard', 'SuperAdminController@dashboard')->name('dashboard1');
+    Route::get('/superadmin/item', 'SuperAdminController@itemlist')->name('itemlist1');
+    Route::post('/superadmin/item-action', 'SuperAdminController@itemaction')->name('itemaction1');
 });

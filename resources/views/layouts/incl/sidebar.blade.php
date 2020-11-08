@@ -22,7 +22,7 @@
                     <div class="collapsible-body">
                         <ul class="list-unstyled">
                             <li>
-                                <a href="{{Auth::user()->level == 1 ? '/superadmin/item-list' : '/admin/item-list'}}" class="waves-effect">Daftar Item</a>
+                                <a href="{{route('itemlist'.Auth::user()->level)}}" class="waves-effect">Daftar Item</a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect">Tambah Item</a>

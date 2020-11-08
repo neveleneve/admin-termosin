@@ -10,4 +10,8 @@ class SuperAdminController extends Controller
     {
         return view('admin.dashboard');
     }
+    public function itemlist()
+    {
+        return view('admin.item');
+    }
 }
