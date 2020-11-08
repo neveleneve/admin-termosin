@@ -68,7 +68,7 @@
                     <h4 class="card-title"><a>{{$dataitem[0]->namaitem}}</a></h4>
                     <h6>Deskripsi</h6>
                     <p class="card-text">
-                        {{File::get(public_path('/images/desc/'.$dataitem[0]->id.'.txt'))}}
+                        {{File::get(public_path('../..//images/desc/'.$dataitem[0]->id.'.txt'))}}
                     </p>
                     <a href="#" class="btn btn-primary">Button</a>
                 </div>
