@@ -21,6 +21,7 @@ class AdminController extends Controller
             'dataitem' => $dataitem
         ]);
     }
+
     public function itemaction(Request $req)
     {
         if (Input::get('detail')) {
@@ -30,11 +31,13 @@ class AdminController extends Controller
             $id = $req->id;
             return redirect()->route('edititem0', [$id]);
         } else if (Input::get('warna')) {
-            echo 'warna';
+            $id = $req->id;
+            return redirect()->route('warnaitem0', [$id]);
         } else if (Input::get('hapus')) {
             echo 'hapus';
         }
     }
+
     public function viewitem($id)
     {
         $dataitem = Item::where('id', $id)->get();
@@ -44,6 +47,7 @@ class AdminController extends Controller
             'datawarna' => $datawarna
         ]);
     }
+
     public function edititem($id)
     {
         $dataitem = Item::where('id', $id)->get();
@@ -53,6 +57,7 @@ class AdminController extends Controller
             'datawarna' => $datawarna
         ]);
     }
+
     public function updateitem(Request $req)
     {
         Item::where('id', $req->id)->update([
@@ -62,5 +67,28 @@ class AdminController extends Controller
             'diskon' => $req->diskon
         ]);
         return redirect('admin/item');
+    }
+
+    public function warnaitem($id)
+    {
+        $dataitem = Item::where('id', $id)->get();
+        $datawarna = Item_Color::where('id_item', $id)->get();
+        if (count($dataitem) > 0) {
+            return view('admin.itemwarna', [
+                'datawarna' => $datawarna,
+                'dataitem' => $dataitem
+            ]);
+        }else {
+            return redirect('admin/item');
+        }
+    }
+
+    public function tambahwarnaitem(Request $req)
+    {
+        Item_Color::create([
+            'id_item' => $req->id_item,
+            'warna' => $req->warna
+        ]);
+        return redirect('/admin/item/warna/'.$req->id_item);
     }
 }

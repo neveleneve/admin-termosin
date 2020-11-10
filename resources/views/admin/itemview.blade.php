@@ -67,7 +67,7 @@
                     <h4 class="card-title"><strong>{{$dataitem[0]->namaitem}}</strong></h4>
                     <h6 class="font-weight-bold">Deskripsi</h6>
                     <p class="card-text">
-                        {{File::get(public_path('../..//images/desc/'.$dataitem[0]->id.'.txt'))}}
+                        {{File::get(public_path('../../termosin/public/images/desc/'.$dataitem[0]->id.'.txt'))}}
                     </p>
                     <h6 class="font-weight-bold">Warna</h6>
                     <ul class="list-group list-group-horizontal-lg justify-content-center">
