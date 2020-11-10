@@ -25,23 +25,42 @@ class AdminController extends Controller
     {
         if (Input::get('detail')) {
             $id = $req->id;
-            // echo $id;
             return redirect()->route('viewitem0', [$id]);
-        }else if (Input::get('edit')) {
-            echo 'edit';
-        }else if (Input::get('diskon')) {
-            echo 'diskon';
-        }else if (Input::get('hapus')) {
+        } else if (Input::get('edit')) {
+            $id = $req->id;
+            return redirect()->route('edititem0', [$id]);
+        } else if (Input::get('warna')) {
+            echo 'warna';
+        } else if (Input::get('hapus')) {
             echo 'hapus';
         }
     }
     public function viewitem($id)
     {
         $dataitem = Item::where('id', $id)->get();
-        $datawarna = Item_Color::where('id_item', 1)->get();
+        $datawarna = Item_Color::where('id_item', $id)->get();
         return view('admin.itemview', [
             'dataitem' => $dataitem,
             'datawarna' => $datawarna
         ]);
+    }
+    public function edititem($id)
+    {
+        $dataitem = Item::where('id', $id)->get();
+        $datawarna = Item_Color::where('id_item', $id)->get();
+        return view('admin.itemedit', [
+            'dataitem' => $dataitem,
+            'datawarna' => $datawarna
+        ]);
+    }
+    public function updateitem(Request $req)
+    {
+        Item::where('id', $req->id)->update([
+            'namaitem' => $req->namaitem,
+            'harga' => $req->harga,
+            'diskonstate' => $req->diskonstate,
+            'diskon' => $req->diskon
+        ]);
+        return redirect('admin/item');
     }
 }

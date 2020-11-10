@@ -37,8 +37,7 @@
                     {{$dataitem[0]->img_qty}}
                     @for ($i = 0; $i < $dataitem[0]->img_qty; $i++)
                         <div class="carousel-item {{$i == 0 ? 'active' : ''}}">
-                            <img class="d-block w-100"
-                                src="{{asset('/images/item/'.$dataitem[0]->id.'-'.$i.'.png')}}"
+                            <img class="d-block w-100" src="{{asset('/images/item/'.$dataitem[0]->id.'-'.$i.'.png')}}"
                                 alt="slide {{$i+1}}">
                         </div>
                         @endfor
@@ -65,12 +64,19 @@
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><a>{{$dataitem[0]->namaitem}}</a></h4>
-                    <h6>Deskripsi</h6>
+                    <h4 class="card-title"><strong>{{$dataitem[0]->namaitem}}</strong></h4>
+                    <h6 class="font-weight-bold">Deskripsi</h6>
                     <p class="card-text">
                         {{File::get(public_path('../..//images/desc/'.$dataitem[0]->id.'.txt'))}}
                     </p>
-                    <a href="#" class="btn btn-primary">Button</a>
+                    <h6 class="font-weight-bold">Warna</h6>
+                    <ul class="list-group list-group-horizontal-lg justify-content-center">
+                        @foreach ($datawarna as $item)
+                        <li class="list-group-item">
+                            {{$item->warna}}
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

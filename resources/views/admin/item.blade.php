@@ -36,6 +36,7 @@
                 <table class="table table-bordered text-nowrap">
                     <thead class="elegant-color-dark white-text">
                         <tr>
+                            <th></th>
                             <th>No</th>
                             <th>Nama</th>
                             <th>Harga</th>
@@ -49,6 +50,11 @@
                     <tbody>
                         @foreach ($dataitem as $item)
                         <tr>
+                            <td>
+                                <a href="admin/item/hapus/{{$item->id}}" onclick="return confirm('Hapus Data Item Ini?')" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
                             <td>{{$no++}}</td>
                             <td>{{$item->namaitem}}</td>
                             <td>Rp. {{number_format($item->harga, 0, ',', '.')}}</td>
@@ -63,10 +69,14 @@
                                 <form action="{{route('itemaction'.Auth::user()->level)}}" method="post">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id" value="{{$item->id}}">
-                                    <input class="btn btn-sm blue darken-4 white-text" name="detail" id="detail" type="submit" value="Detail">
-                                    <input class="btn btn-sm lime accent-2" name="edit" id="edit" type="submit" value="Edit Data">
-                                    <input class="btn btn-sm cyan darken-4 white-text" name="diskon" id="diskon" type="submit" value="Diskon">
-                                    <input class="btn btn-sm red darken-2 white-text" name="hapus" id="hapus" type="submit" onclick="return confirm('Hapus Data Barang Ini?')" value="Hapus">
+                                    <input class="btn btn-sm blue darken-4 white-text" name="detail" id="detail"
+                                        type="submit" value="Detail">
+                                    <input class="btn btn-sm lime accent-2" name="edit" id="edit" type="submit"
+                                        value="Edit Data">
+                                    <input class="btn btn-sm cyan darken-4 white-text" name="warna" id="warna"
+                                        type="submit" value="Warna">
+                                    <input class="btn btn-sm red darken-2 white-text" name="gambar" id="gambar"
+                                        type="submit" value="Gambar">
                                 </form>
                             </td>
                         </tr>

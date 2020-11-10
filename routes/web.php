@@ -14,6 +14,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/item', 'AdminController@itemlist')->name('itemlist0');
     Route::post('admin/item-action', 'AdminController@itemaction')->name('itemaction0');
     Route::get('admin/item/detail/{id}', 'AdminController@viewitem')->name('viewitem0');
+    Route::get('admin/item/edit/{id}', 'AdminController@edititem')->name('edititem0');
+    Route::post('admin/item/edit', 'AdminController@updateitem');
 });
 // Super Admin Special Route
 Route::group(['middleware' => 'auth:superadmin'], function () {
