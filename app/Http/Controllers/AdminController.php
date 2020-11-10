@@ -33,8 +33,8 @@ class AdminController extends Controller
         } else if (Input::get('warna')) {
             $id = $req->id;
             return redirect()->route('warnaitem0', [$id]);
-        } else if (Input::get('warna')) {
-            echo 'warna';
+        } else if (Input::get('gambar')) {
+            echo 'gambar';
         }
     }
 
